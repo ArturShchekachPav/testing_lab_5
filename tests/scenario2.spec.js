@@ -25,14 +25,14 @@ test('Scenario 2 - find video and reload', async () => {
   await firstVideoLink.click();
 
   await page.screenshot({
-    path: 'artifacts/final-page.png',
+    path: 'playwright-report/screenshot.png',
     fullPage: true
   });
 
   const html = await page.content();
 
   fs.writeFileSync(
-    'artifacts/page.html',
+    'playwright-report/layout.html',
     html
   );
 
