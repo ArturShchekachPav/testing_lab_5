@@ -24,6 +24,8 @@ test('Scenario 2 - find video and save artifacts', async () => {
   const firstVideoLink = grid.locator(':scope > :first-child a[href*="/video/"]').first();
   await firstVideoLink.click();
 
+  await page.waitForTimeout(2000);
+
   await page.screenshot({
     path: 'artifacts/screenshot.png',
     fullPage: true
