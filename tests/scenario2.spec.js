@@ -1,7 +1,7 @@
 const { test, expect, chromium } = require('@playwright/test');
 const fs = require('fs');
 
-test('Scenario 2 - find video and reload', async () => {
+test('Scenario 2 - find video and save artifacts', async () => {
 
   const browser = await chromium.launch({
     headless: true,
@@ -25,14 +25,14 @@ test('Scenario 2 - find video and reload', async () => {
   await firstVideoLink.click();
 
   await page.screenshot({
-    path: 'playwright-report/screenshot.png',
+    path: 'artifacts/screenshot.png',
     fullPage: true
   });
 
   const html = await page.content();
 
   fs.writeFileSync(
-    'playwright-report/layout.html',
+    'artifacts/layout.html',
     html
   );
 
